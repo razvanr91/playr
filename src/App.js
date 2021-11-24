@@ -1,4 +1,5 @@
 import React from "react";
+import "./styles/styles.scss";
 
 // Add components
 import Controls from "./components/Controls"

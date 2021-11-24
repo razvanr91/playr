@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlayCircle, faAngleDoubleLeft, faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faAngleDoubleLeft, faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function Player() {
     return (
@@ -12,7 +12,7 @@ export default function Player() {
             </div>
             <div className="play-control">
                 <FontAwesomeIcon className="previousTrack" size="2x" icon={faAngleDoubleLeft} />
-                <FontAwesomeIcon className="play" size="2x" icon={faPlayCircle} />
+                <FontAwesomeIcon className="play" size="2x" icon={faPlay} />
                 <FontAwesomeIcon className="nextTrack" size="2x" icon={faAngleDoubleRight} />
             </div>
         </div>

@@ -63,15 +63,6 @@ export default function chillHop() {
             active: false,
         },
         {
-            name: "Surfloop",
-            conver: "https://chillhop.com/wp-content/uploads/2021/10/1f90f966219973433f4bf9f4910893028abc4360-300x300.jpg",
-            artist: "Philanthrope, mommy, HM Surf",
-            id: uuid(),
-            active: false,
-            color: ["#53788C,#D98EA1"],
-            audio: "https://mp3.chillhop.com/serve.php/?mp3=27485"
-        },
-        {
             name: "Lagoons",
             artist: "Strehlow, Chris Mazuera ",
             cover: "https://i.scdn.co/image/ab67616d0000b273c266150b4cdccf2ced31d166",
@@ -79,6 +70,6 @@ export default function chillHop() {
             active: false,
             colors: ["#FBB697", "#D7C1C3"],
             audio: "https://mp3.chillhop.com/serve.php/?mp3=8266"
-        }
+        },
     ]
 }

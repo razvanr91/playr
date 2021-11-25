@@ -8,6 +8,7 @@ import Library from "./components/Library";
 
 // Import Utils
 import data from "./util";
+import Nav from "./components/Nav";
 
 function App() {
   // References
@@ -21,6 +22,7 @@ function App() {
     duration: 0
   });
 
+  const [libraryStatus, setLibraryStatus] = useState(false);
 
   function songInfoHandler(e) {
     const current = e.target.currentTime;
@@ -30,7 +32,8 @@ function App() {
 
   return (
     <div className="App">
-      <Library songs={songs} setCurrentSong={setCurrentSong} audioRef={audioRef} isPlaying={isPlaying} setSongs={setSongs} />
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
+      <Library songs={songs} setCurrentSong={setCurrentSong} audioRef={audioRef} isPlaying={isPlaying} setSongs={setSongs} libraryStatus={libraryStatus} />
       <Song currentSong={currentSong} />
       <Controls currentSong={currentSong} setIsPlaying={setIsPlaying} isPlaying={isPlaying} audioRef={audioRef} songInfo={songInfo} setSongInfo={setSongInfo} />
       <audio onTimeUpdate={songInfoHandler} onLoadedMetadata={songInfoHandler} ref={audioRef} src={currentSong.audio} />

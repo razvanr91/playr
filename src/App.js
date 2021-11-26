@@ -32,10 +32,10 @@ function App() {
 
   return (
     <div className="App">
-      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Library songs={songs} setCurrentSong={setCurrentSong} audioRef={audioRef} isPlaying={isPlaying} setSongs={setSongs} libraryStatus={libraryStatus} />
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong} />
-      <Controls currentSong={currentSong} setIsPlaying={setIsPlaying} isPlaying={isPlaying} audioRef={audioRef} songInfo={songInfo} setSongInfo={setSongInfo} />
+      <Controls setCurrentSong={setCurrentSong} songs={songs} currentSong={currentSong} setIsPlaying={setIsPlaying} isPlaying={isPlaying} audioRef={audioRef} songInfo={songInfo} setSongInfo={setSongInfo} />
       <audio onTimeUpdate={songInfoHandler} onLoadedMetadata={songInfoHandler} ref={audioRef} src={currentSong.audio} />
     </div>
   );

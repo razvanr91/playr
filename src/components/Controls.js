@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faAngleDoubleLeft, faAngleDoubleRight, faPause } from "@fortawesome/free-solid-svg-icons";
-import PlayAudio from "../utils";
 
 export default function Player({ setSongs, setCurrentSong, currentSong, isPlaying, setIsPlaying, audioRef, setSongInfo, songInfo, songs }) {
     // Effect
@@ -43,21 +42,20 @@ export default function Player({ setSongs, setCurrentSong, currentSong, isPlayin
         setSongInfo({ ...songInfo, currentTime: e.target.value });
     }
 
-    function skipTrackHandler(direction) {
+    async function skipTrackHandler(direction) {
         let currentIndex = songs.findIndex(song => song.id === currentSong.id);
 
         if (direction === "next") {
-            setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+            await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
         } else if (direction === "previous") {
             if ((currentIndex - 1) % songs.length === -1) {
-                setCurrentSong(songs[songs.length - 1]);
-                PlayAudio(isPlaying, audioRef);
+                await setCurrentSong(songs[songs.length - 1]);
+                if (isPlaying) audioRef.current.play();
                 return;
             }
-            setCurrentSong(songs[(currentIndex - 1) % songs.length]);
+            await setCurrentSong(songs[(currentIndex - 1) % songs.length]);
         }
-
-        PlayAudio(isPlaying, audioRef);
+        if (isPlaying) audioRef.current.play();
     }
 
     // Add Styles

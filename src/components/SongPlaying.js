@@ -1,9 +1,9 @@
 import React from "react";
 
 export default function SongPlaying({ currentSong, setCurrentSong, songs, audioRef, isPlaying, setSongs }) {
-    function songSelectHandler() {
+    async function songSelectHandler() {
         let selectedSong = songs.filter(song => song.id === currentSong.id)
-        setCurrentSong(selectedSong[0]);
+        await setCurrentSong(selectedSong[0]);
 
         let newSongs = songs.map(song => {
             if (song.id === currentSong.id) {
@@ -20,14 +20,7 @@ export default function SongPlaying({ currentSong, setCurrentSong, songs, audioR
         });
         setSongs(newSongs);
 
-        if (isPlaying) {
-            let playPromise = audioRef.current.play();
-            if (playPromise !== undefined) {
-                playPromise.then(audio => {
-                    audioRef.current.play();
-                })
-            }
-        }
+        if (isPlaying) audioRef.current.play();
     }
 
     return (
